@@ -1,0 +1,16 @@
+.commentBox{
+    box-shadow: 0 2px 4px #ccc ;
+    width: 50% ;
+    margin: auto ;
+}
+
+.commentInp{ 
+    border: 3px solid #ccc; 
+    margin-bottom: 1rem;
+}
+
+.commentSubmitButton{ 
+    border:none ; 
+    padding: 2px; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

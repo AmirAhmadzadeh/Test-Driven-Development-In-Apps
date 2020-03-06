@@ -1,0 +1,8 @@
+.commentItem{
+    box-shadow:0 2px 4px #aaa ;
+    font-size: 1rem ;
+    text-align: left ;
+    margin: 1rem 0;
+    padding: 1rem;
+    list-style : none ;
+}
