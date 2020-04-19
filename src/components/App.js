@@ -1,21 +1,18 @@
-import React  from 'react';
-import 'components/App.css';
+import React from 'react';
 import CommentBox from 'components/comment/commentBox/commentBox';
-import CommentList from 'components/comment/commentList/commentList';
+import Layout from './Layout';
 
 
-function App(props) {
+function App() {
   return (
-    <div className="App">
-
-      <h1> this application cretes for testing puposes! </h1>
-      <h2>Hi there</h2>
-
+    <Layout classes={['container text-center']}>
       <CommentBox />
-
-      <CommentList/>
-    </div>
+    </Layout>
   );
-}
+};
 
 export default App;
+
+
+
+

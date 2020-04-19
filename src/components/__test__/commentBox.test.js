@@ -14,7 +14,6 @@ beforeEach(() => {
             comments: ['firstComment', 'second Comment']
         }
     };
-
     wrappedCommentBoxCmp = mount(
         <RootReduxStoreWrapper initState={initState}>
             <CommentBox />
@@ -29,7 +28,6 @@ afterEach(() => {
 
 // this component should has a textarea and a button 
 it('has a text area and Two button', () => {
-
     expect(wrappedCommentBoxCmp
         .find('textarea')
         .length)
@@ -62,7 +60,6 @@ describe('text area tests ', () => {
 
 
     it('empty the textarea after submitting the form', () => {
-
         expect(wrappedCommentBoxCmp
             .find('textarea')
             .prop('value')).toEqual('a comment for test');

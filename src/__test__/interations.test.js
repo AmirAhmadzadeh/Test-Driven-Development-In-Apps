@@ -8,9 +8,7 @@ import moxios from 'moxios';
 let wrappedApp;
 
 
-
 describe('comments Integration Test', () => {
-
     beforeEach(() => {
         moxios.install();
         moxios.stubRequest('https://jsonplaceholder.typicode.com/comments', {
@@ -21,25 +19,19 @@ describe('comments Integration Test', () => {
 
     afterEach(() => {
         moxios.uninstall();
-    })
+    });
 
     it('should fetch data from api and display CommentItems ', (done) => {
-
         wrappedApp = mount(
             <RootReduxStore>
                 <App />
             </RootReduxStore>
         );
-            
         wrappedApp.find('button.fetch-btn').simulate('click');
-
-        //introducing a tiny  Little Pause 
         setTimeout(() => {
             wrappedApp.update();
             expect(wrappedApp.find('li').length).toEqual(2);
             done();
         }, 100);
-
     });
-
 }); 

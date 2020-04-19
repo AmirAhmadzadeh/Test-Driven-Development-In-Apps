@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from 'react';
-import './style.css';
+import './style.scss';
 import { useDispatch } from 'react-redux';
 import { sendComment, fetchComments } from 'store/actions';
+import requireAuth from '../../hoc/requireAuth';
+import { withRouter } from 'react-router-dom';
 
-export default function (props) {
+function CommentBox(props) {
 
     const dispatch = useDispatch();
     const saveComment = (cm) => dispatch(sendComment(cm));
@@ -19,6 +21,9 @@ export default function (props) {
         if (comment.length === 0) return;
         saveComment(comment);
         setComment('');
+
+
+        props.history.push('/');
     };
 
     const enterPressedHandler = (e) => {
@@ -33,35 +38,42 @@ export default function (props) {
         <React.Fragment>
             <form
                 onSubmit={commentSendHandler}
-                className='commentBox'
+                className='container commentBox'
                 onKeyPress={enterPressedHandler}>
-                <div>
+                <div className='form-group'>
+                    <label for='comment'>Comment Text</label>
                     <textarea
-                        className='commentInp'
+                        id='comment'
+                        className='commentInp form-control'
                         value={comment}
                         type='text'
                         onChange={(e) => setComment(e.target.value)}
                         rows={5}
                         autoFocus
                         ref={textFoucus} />
+                    <small className='text-muted'>
+                        Write Youre Valueble Comment Please
+                    </small>
                 </div>
-                <div>
+                <div className='form-group'>
                     <button
-                        className='commentSubmitButton'
-                        type='submit'>
+                        className='btn-block btn btn-primary btn-outline-lg'
+                        type='submit'
+                    >
                         send
                     </button>
                 </div>
             </form>
 
-            <div>
+            <div className='commentBox container' >
                 <button
-                    className='fetch-btn'
+                    className='btn-block fetch-btn btn btn-lg btn-outline btn-secondary'
                     onClick={fetchCommentsHandler}>
                     Fetch Comments
-                    </button>
+                </button>
             </div>
         </React.Fragment>
 
     );
 }
+export default requireAuth(withRouter(CommentBox)); 

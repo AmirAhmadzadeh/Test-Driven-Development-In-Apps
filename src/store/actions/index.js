@@ -4,7 +4,13 @@
 
 
 export {
-    sendComment , 
+    sendComment,
     // commentChange
-    fetchComments 
+    fetchComments
 } from './comment'
+
+
+export {
+    signIn
+} from './auth';
+
